@@ -1,0 +1,140 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4faff;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #009688;
+  color: white;
+  text-align: center;
+  padding: 30px 20px 15px;
+}
+
+header h1 {
+  margin: 0 0 10px;
+  font-size: 2.5rem;
+}
+
+header p.intro {
+  font-size: 18px;
+  margin: 0 0 25px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.4;
+}
+
+main {
+  max-width: 900px;
+  margin: 0 auto 40px;
+  padding: 0 20px;
+}
+
+h2 {
+  color: #004d40;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.image-row {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  flex-wrap: nowrap;
+  margin-bottom: 40px;
+}
+
+.image-row figure {
+  text-align: center;
+  width: 180px;
+  margin: 0;
+}
+
+.image-row img {
+  width: 140px;
+  height: 140px;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+  object-fit: contain;
+  background: white;
+  padding: 10px;
+}
+
+.image-row img:hover {
+  transform: scale(1.1);
+}
+
+figcaption {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #004d40;
+  font-size: 18px;
+}
+
+.tech-content {
+  font-size: 14px;
+  margin: 8px 0;
+  color: #222;
+}
+
+.know-more-link {
+  font-size: 14px;
+  color: #00695c;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.know-more-link:hover {
+  text-decoration: underline;
+}
+
+.button-container {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+button {
+  padding: 12px 24px;
+  font-size: 18px;
+  background-color: #009688;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #00796b;
+}
+
+footer {
+  background-color: #009688;
+  color: white;
+  text-align: center;
+  padding: 15px 10px;
+}
+
+footer p {
+  margin: 0;
+}
+
+.reference {
+  text-align: center;
+  font-size: 16px;
+  margin-bottom: 30px;
+}
+
+.reference a {
+  color: #00796b;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.reference a:hover {
+  text-decoration: underline;
+}
