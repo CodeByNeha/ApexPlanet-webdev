@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Project</title>
+    <link rel="stylesheet" href="task2.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Connect & Plan</h1>
+        <p>Reach Out and Stay on Track – All in One Place</p>
+      </header>
+
+      <nav>
+        <button class="nav-btn" onclick="showSection('home', this)">
+          Home
+        </button>
+        <button class="nav-btn" onclick="showSection('contact', this)">
+          Contact Us
+        </button>
+        <button class="nav-btn" onclick="showSection('tasks', this)">
+          Tasks
+        </button>
+      </nav>
+
+      <main>
+        <section id="home" class="card section">
+          <h2>Welcome to My Developer Showcase</h2>
+          <p>
+            This project highlights essential web development skills using core
+            technologies: HTML, CSS, and JavaScript. It includes:
+          </p>
+          <ul>
+            <li>A responsive contact form with real-time validation</li>
+            <li>A dynamic to-do list powered by JavaScript</li>
+            <li>A responsive layout that adapts to any screen size</li>
+          </ul>
+          <p>
+            Navigate through the features above to explore the project in
+            action.
+          </p>
+        </section>
+
+        <section id="contact" class="card section hidden">
+          <h2>Contact Us</h2>
+          <form id="contactForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" required />
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" required />
+
+            <label for="message">Message:</label>
+            <textarea id="message" rows="4" required></textarea>
+
+            <button type="submit">Submit</button>
+          </form>
+        </section>
+
+        <section id="tasks" class="card section hidden">
+          <h2>To-Do List</h2>
+          <div class="todo-input-group">
+            <input type="text" id="todoInput" placeholder="Add a new task..." />
+            <button onclick="addTodo()">Add</button>
+          </div>
+          <ul id="todoList"></ul>
+        </section>
+      </main>
+
+      <footer>
+        <p>&copy; 2025 Web Project. All rights reserved.</p>
+      </footer>
+    </div>
+
+    <script src="task2.js"></script>
+  </body>
+</html>
