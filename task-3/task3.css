@@ -1,0 +1,138 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(120deg, #e0f2f1, #b2dfdb);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 20px;
+  color: #333;
+}
+
+.container {
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 20px;
+  font-size: 28px;
+  color: #00796b;
+}
+
+button {
+  padding: 12px 20px;
+  margin: 10px;
+  border: none;
+  border-radius: 8px;
+  background-color: #00796b;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+  background-color: #004d40;
+  transform: scale(1.05);
+}
+
+#options button {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  background-color: #e0f2f1;
+  color: #004d40;
+  font-weight: 600;
+  border: 2px solid transparent;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+#options button:hover:not(:disabled) {
+  background-color: #b2dfdb;
+}
+
+#options button.correct {
+  background-color: #a5d6a7;
+  color: #2e7d32;
+  border-color: #2e7d32;
+}
+
+#options button.incorrect {
+  background-color: #ef9a9a;
+  color: #b71c1c;
+  border-color: #b71c1c;
+}
+
+#result {
+  margin-top: 15px;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+#jokeDisplay {
+  margin-top: 20px;
+  font-style: italic;
+  color: #555;
+}
+
+#homeIcon {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  font-size: 24px;
+  background: #00796b;
+  color: white;
+  padding: 10px 14px;
+  border-radius: 50%;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease;
+  z-index: 1000;
+}
+
+#homeIcon:hover {
+  transform: scale(1.1);
+  background-color: #004d40;
+}
+
+#question,
+#options {
+  transition: opacity 0.3s ease;
+}
+
+#nextBtn {
+  background-color: #00796b;
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+#nextBtn:disabled {
+  background-color: #80cbc4;
+  cursor: not-allowed;
+}
+
+#nextBtn:hover:not(:disabled) {
+  background-color: #004d40;
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz & Joke App</title>
+    <link rel="stylesheet" href="task3.css" />
+  </head>
+  <body>
+    <!-- Floating Home Icon -->
+    <a id="homeIcon" onclick="goHome()" title="Go to Home">🏠</a>
+
+    <div class="container">
+      <!-- Home Page -->
+      <div id="homePage">
+        <h1>Welcome to SmartPlay!</h1>
+        <p style="margin-bottom: 25px; font-size: 18px">
+          Ready to challenge your brain or tickle your funny bone? Choose what
+          you want to do today:
+        </p>
+        <button onclick="showQuiz()">🎓 Take a Quiz</button>
+        <button onclick="showJoke()">😂 Ready to Laugh?</button>
+      </div>
+
+      <!-- Quiz Page -->
+      <div id="quizPage" style="display: none">
+        <h1>🧠 Quiz Time</h1>
+        <p id="question">Loading question...</p>
+        <div id="options"></div>
+        <button id="nextBtn">Next</button>
+        <p id="result"></p>
+      </div>
+
+      <!-- Joke Page -->
+      <div id="jokePage" style="display: none">
+        <h1>😂 Random Joke</h1>
+        <button id="getJokeBtn">Get Joke</button>
+        <p id="jokeDisplay">Click above to get a random joke!</p>
+      </div>
+    </div>
+
+    <script src="task3.js"></script>
+  </body>
+</html>
