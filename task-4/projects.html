@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Neha Chiluka - Projects</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+        margin: 0;
+        background: #f9f9f9;
+        color: #222;
+      }
+
+      header {
+        background: #1e272e;
+        color: #fff;
+        text-align: center;
+        padding: 2.5rem 1rem;
+      }
+
+      header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 0.3rem;
+      }
+
+      header p {
+        font-size: 1.1rem;
+        color: #ccc;
+      }
+
+      nav {
+        background: #2f3640;
+        display: flex;
+        justify-content: center;
+        padding: 1rem;
+        gap: 2rem;
+      }
+
+      nav a {
+        color: #eee;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      nav a:hover {
+        color: #00a8ff;
+      }
+
+      section {
+        max-width: 1100px;
+        margin: auto;
+        padding: 3rem 2rem;
+      }
+
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+      }
+
+      .card {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        text-align: center;
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+      }
+
+      .card h3 {
+        color: #1e90ff;
+      }
+
+      .card p {
+        color: #555;
+      }
+
+      .card a {
+        display: inline-block;
+        margin-top: 15px;
+        background: #1e90ff;
+        color: white;
+        padding: 10px 16px;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: background 0.3s ease;
+      }
+
+      .card a:hover {
+        background: #1565c0;
+      }
+
+      footer {
+        background: #1e272e;
+        color: #ccc;
+        text-align: center;
+        padding: 1rem;
+        margin-top: 4rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>My Projects</h1>
+      <p>Explore my recent front-end development work</p>
+    </header>
+
+    <nav>
+      <a href="index.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <section>
+      <div class="projects-grid">
+        <div class="card">
+          <h3>📝 Notes App</h3>
+          <p>Create, delete, and store notes locally in your browser.</p>
+          <a href="notes.html">Open Notes App</a>
+        </div>
+        <div class="card">
+          <h3>🛍️ Product Listing</h3>
+          <p>
+            40+ products with filtering, category sorting, and responsive
+            layout.
+          </p>
+          <a href="products.html">Open Product Page</a>
+        </div>
+        <div class="card">
+          <h3>📩 Contact Form</h3>
+          <p>Clean contact form design using HTML and CSS.</p>
+          <a href="contact.html">Open Contact Form</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 Neha Chiluka. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

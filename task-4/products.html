@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Product Listing</title>
+    <style>
+      body {
+        background-color: #f0f2f5;
+        font-family: "Segoe UI", sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      .product-page {
+        max-width: 1100px;
+        margin: 2em auto;
+        background: white;
+        padding: 2em;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 1em;
+      }
+
+      .controls {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 20px;
+      }
+
+      input,
+      select {
+        padding: 10px;
+        width: 220px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      .products {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 1.5em;
+        margin-top: 2em;
+      }
+
+      .product {
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 1em;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        transition: 0.3s ease;
+        text-align: center;
+        min-height: 120px; /* Example, adjust as needed */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .product h3 {
+        margin: 0.5em 0 0.2em;
+        font-size: 1.1em;
+      }
+
+      .product p {
+        font-size: 0.95em;
+        color: #555;
+        margin: 5px 0;
+      }
+
+      .product:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="product-page">
+      <h1>Product List</h1>
+      <div class="controls">
+        <input
+          type="text"
+          id="filterInput"
+          placeholder="Search products..."
+          onkeyup="filterProducts()"
+        />
+
+        <select id="categorySelect" onchange="filterProducts()">
+          <option value="all">All Categories</option>
+          <option value="Electronics">Electronics</option>
+          <option value="Appliances">Appliances</option>
+          <option value="Clothes">Clothes</option>
+          <option value="Footwear">Footwear</option>
+          <option value="Accessories">Accessories</option>
+        </select>
+
+        <select onchange="sortProducts(this.value)">
+          <option value="">Sort By</option>
+          <option value="name">Name</option>
+          <option value="priceLow">Price: Low to High</option>
+          <option value="priceHigh">Price: High to Low</option>
+        </select>
+      </div>
+
+      <div id="productList" class="products"></div>
+    </div>
+
+    <script>
+      const products = [
+        // Electronics
+        { name: "iPhone 13 Pro 📱", category: "Electronics", price: 85000 },
+        { name: "Boat Headphones 🎧", category: "Electronics", price: 1500 },
+        { name: "HP Laptop 💻", category: "Electronics", price: 60000 },
+        {
+          name: "Sony Bluetooth Speaker 🔊",
+          category: "Electronics",
+          price: 4500,
+        },
+
+        // Appliances
+        {
+          name: "Samsung Refrigerator 🧊",
+          category: "Appliances",
+          price: 30000,
+        },
+        {
+          name: "IFB Washing Machine 🧺",
+          category: "Appliances",
+          price: 25000,
+        },
+        {
+          name: "Philips Mixer Grinder 🌪️",
+          category: "Appliances",
+          price: 3500,
+        },
+
+        // Clothes
+        { name: "Men's T-Shirt 👕", category: "Clothes", price: 599 },
+        { name: "Women's Kurti 👗", category: "Clothes", price: 999 },
+        { name: "Men's Jeans 👖", category: "Clothes", price: 1200 },
+
+        // Footwear
+        { name: "Nike Running Shoes 👟", category: "Footwear", price: 3999 },
+        { name: "Puma Flip Flops 🩴", category: "Footwear", price: 999 },
+
+        // Accessories
+        { name: "Titan Men's Watch ⌚", category: "Accessories", price: 3499 },
+        { name: "Ray-Ban Sunglasses 🕶️", category: "Accessories", price: 5999 },
+
+        // --- 50 NEW PRODUCTS ADDED BELOW (No image property) ---
+        // Electronics (continued)
+        { name: "Google Pixel 7a 📱", category: "Electronics", price: 43999 },
+        {
+          name: "JBL Bluetooth Earbuds 🎧",
+          category: "Electronics",
+          price: 2999,
+        },
+        {
+          name: "Dell Monitor 24 inch 🖥️",
+          category: "Electronics",
+          price: 12000,
+        },
+        { name: "Canon DSLR Camera 📸", category: "Electronics", price: 45000 },
+        {
+          name: "Smart LED TV 55 inch 📺",
+          category: "Electronics",
+          price: 55000,
+        },
+        { name: "Amazon Echo Dot 🗣️", category: "Electronics", price: 3499 },
+        { name: "Gaming Keyboard ⌨️", category: "Electronics", price: 2500 },
+        { name: "Wireless Mouse 🖱️", category: "Electronics", price: 700 },
+        {
+          name: "Portable Hard Drive 1TB 💾",
+          category: "Electronics",
+          price: 5000,
+        },
+        { name: "Router Wi-Fi 6 📶", category: "Electronics", price: 4000 },
+
+        // Appliances (continued)
+        { name: "LG Microwave Oven ♨️", category: "Appliances", price: 8000 },
+        {
+          name: "Dyson Vacuum Cleaner 🧹",
+          category: "Appliances",
+          price: 28000,
+        },
+        {
+          name: "Voltas Air Conditioner ❄️",
+          category: "Appliances",
+          price: 35000,
+        },
+        { name: "Water Purifier Kent 💧", category: "Appliances", price: 9000 },
+        {
+          name: "Electric Kettle Morphy ☕",
+          category: "Appliances",
+          price: 1200,
+        },
+        {
+          name: "Coffee Maker Philips ☕",
+          category: "Appliances",
+          price: 4000,
+        },
+        { name: "Toaster Bajaj 🍞", category: "Appliances", price: 1500 },
+        { name: "Iron Press Bajaj ♨️", category: "Appliances", price: 800 },
+        { name: "Dishwasher Bosch 🍽️", category: "Appliances", price: 40000 },
+        {
+          name: "Food Processor Prestige 🥣",
+          category: "Appliances",
+          price: 6000,
+        },
+
+        // Clothes (continued)
+        { name: "Women's Denim Jacket 🧥", category: "Clothes", price: 1800 },
+        { name: "Men's Formal Shirt 👔", category: "Clothes", price: 799 },
+        { name: "Kids T-Shirt Pack 👚", category: "Clothes", price: 499 },
+        { name: "Sports Tracksuit 🏃", category: "Clothes", price: 2500 },
+        {
+          name: "Sweatshirt Unisex  hoodies",
+          category: "Clothes",
+          price: 1100,
+        },
+        { name: "Leggings Women's 👖", category: "Clothes", price: 350 },
+        { name: "Saree Silk Blend  Sarees", category: "Clothes", price: 3000 },
+        { name: "Polo T-Shirt Men's 👕", category: "Clothes", price: 650 },
+        { name: "Winter Coat Women's 🧥", category: "Clothes", price: 4500 },
+        { name: "Kids Jeans 👖", category: "Clothes", price: 800 },
+
+        // Footwear (continued)
+        { name: "Adidas Sneakers 👟", category: "Footwear", price: 4500 },
+        { name: "Bata Formal Shoes 👞", category: "Footwear", price: 2000 },
+        { name: "Crocs Sandals 🩴", category: "Footwear", price: 1500 },
+        { name: "Heels Women's 👠", category: "Footwear", price: 1800 },
+        { name: "Kids School Shoes 👟", category: "Footwear", price: 900 },
+        { name: "Sports Sandals Men's 🩴", category: "Footwear", price: 1300 },
+        { name: "Loafers Men's 👞", category: "Footwear", price: 2200 },
+        { name: "Running Socks 🧦", category: "Footwear", price: 250 },
+        { name: "Rain Boots 👢", category: "Footwear", price: 1000 },
+        { name: "Slippers Unisex  slippers", category: "Footwear", price: 400 },
+
+        // Accessories (continued)
+        { name: "Leather Wallet 💼", category: "Accessories", price: 800 },
+        { name: "Smartwatch Fitbit ⌚", category: "Accessories", price: 10000 },
+        { name: "Backpack Travel 🎒", category: "Accessories", price: 2500 },
+        {
+          name: "Earrings Gold Plated 💎",
+          category: "Accessories",
+          price: 600,
+        },
+        { name: "Laptop Bag 💻", category: "Accessories", price: 1500 },
+        { name: "Scarf Woolen 🧣", category: "Accessories", price: 700 },
+        { name: "Hair Dryer Philips 💇‍♀️", category: "Accessories", price: 1800 },
+        {
+          name: "Power Bank 20000mAh 🔋",
+          category: "Accessories",
+          price: 2000,
+        },
+        { name: "Handbag Women's 👜", category: "Accessories", price: 1200 },
+        { name: "Tie Silk 🎗️", category: "Accessories", price: 500 },
+      ];
+
+      let filteredProducts = [...products];
+
+      function displayProducts(list) {
+        const container = document.getElementById("productList");
+        container.innerHTML = "";
+        list.forEach((p) => {
+          const div = document.createElement("div");
+          div.className = "product";
+          div.innerHTML = `
+          <h3>${p.name}</h3>
+          <p>Category: ${p.category}</p>
+          <p>₹${p.price.toLocaleString()}</p>
+        `;
+          container.appendChild(div);
+        });
+      }
+
+      function filterProducts() {
+        const query = document
+          .getElementById("filterInput")
+          .value.toLowerCase();
+        const selectedCategory =
+          document.getElementById("categorySelect").value;
+        filteredProducts = products.filter((p) => {
+          const matchText =
+            p.name.toLowerCase().includes(query) ||
+            p.category.toLowerCase().includes(query);
+          const matchCategory =
+            selectedCategory === "all" || p.category === selectedCategory;
+          return matchText && matchCategory;
+        });
+        displayProducts(filteredProducts);
+      }
+
+      function sortProducts(criteria) {
+        let sorted = [...filteredProducts];
+        if (criteria === "name") {
+          sorted.sort((a, b) => a.name.localeCompare(b.name));
+        } else if (criteria === "priceLow") {
+          sorted.sort((a, b) => a.price - b.price);
+        } else if (criteria === "priceHigh") {
+          sorted.sort((a, b) => b.price - a.price);
+        }
+        displayProducts(sorted);
+      }
+
+      window.onload = () => {
+        filterProducts(); // Initial display
+      };
+    </script>
+  </body>
+</html>

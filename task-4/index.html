@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Neha Chiluka - Portfolio</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Lato", sans-serif;
+        background: #fffaf7;
+        color: #333;
+        line-height: 1.75;
+        font-size: 17px;
+        padding-bottom: 60px;
+      }
+
+      header h1,
+      h2,
+      .tab-btn {
+        font-family: "Poppins", sans-serif;
+      }
+
+      header {
+        background: #ffe3da;
+        text-align: center;
+        padding: 3.5rem 1.5rem;
+      }
+
+      header h1 {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 0.3rem;
+      }
+
+      header p {
+        font-size: 1.3rem;
+        color: #555;
+        font-weight: 400;
+      }
+
+      nav {
+        background: #ffccb3;
+        display: flex;
+        justify-content: center;
+        padding: 1.2rem;
+        gap: 2rem;
+      }
+
+      nav button {
+        background: none;
+        border: none;
+        font-weight: 600;
+        font-size: 1.05rem;
+        cursor: pointer;
+        color: #333;
+        padding: 10px 24px;
+        border-radius: 6px;
+        transition: background 0.3s;
+      }
+
+      nav button:hover,
+      nav button.active {
+        background: #ffd9c1;
+      }
+
+      section {
+        max-width: 960px;
+        margin: auto;
+        padding: 4rem 2rem;
+        display: none;
+      }
+
+      section.active {
+        display: block;
+      }
+
+      h2 {
+        text-align: center;
+        margin-bottom: 2rem;
+        color: #444;
+        font-size: 2rem;
+      }
+
+      .about p {
+        text-align: center;
+        max-width: 720px;
+        margin: 0 auto;
+        font-size: 1.1rem;
+        color: #555;
+      }
+
+      .skills-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 16px;
+        margin-top: 2.5rem;
+      }
+
+      .skill {
+        background: #fff;
+        border: 1px solid #ffcdb2;
+        padding: 12px 20px;
+        border-radius: 25px;
+        box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.04);
+        font-weight: 500;
+      }
+
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 2.5rem;
+        margin-top: 2.5rem;
+      }
+
+      .card {
+        background: #fff;
+        border-radius: 12px;
+        padding: 2rem 1.5rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+        text-align: center;
+        transition: transform 0.3s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-6px);
+      }
+
+      .card h3 {
+        color: #ff7043;
+        margin-bottom: 0.6rem;
+        font-size: 1.3rem;
+      }
+
+      .card p {
+        color: #666;
+        font-size: 1rem;
+      }
+
+      .card a {
+        display: inline-block;
+        margin-top: 1.2rem;
+        background: #ff9770;
+        color: white;
+        padding: 12px 20px;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: background 0.3s ease;
+      }
+
+      .card a:hover {
+        background: #ff7043;
+      }
+
+      .contact-info {
+        background: white;
+        padding: 3rem;
+        border-radius: 12px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+        max-width: 640px;
+        margin: auto;
+        text-align: center;
+      }
+
+      .contact-info p {
+        margin-bottom: 1.2rem;
+        font-size: 1.05rem;
+      }
+
+      .contact-info a {
+        color: #ff7043;
+        text-decoration: none;
+        font-weight: 500;
+      }
+
+      .contact-info a:hover {
+        text-decoration: underline;
+      }
+
+      footer {
+        background: #ffe0d2;
+        text-align: center;
+        padding: 2rem 1rem;
+        margin-top: 3rem;
+        color: #555;
+        font-size: 1rem;
+      }
+
+      @media (max-width: 600px) {
+        nav {
+          flex-direction: column;
+          gap: 12px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Neha Chiluka</h1>
+      <p>Front-End Developer | Clean & Responsive UI</p>
+    </header>
+
+    <nav>
+      <button class="tab-btn active" onclick="showSection('about')">
+        About
+      </button>
+      <button class="tab-btn" onclick="showSection('projects')">
+        Projects
+      </button>
+      <button class="tab-btn" onclick="showSection('contact')">Contact</button>
+    </nav>
+
+    <section id="about" class="active about">
+      <h2>About Me</h2>
+      <p>
+        I'm <strong>Neha</strong>, a front-end developer passionate about
+        building responsive and interactive websites using HTML, CSS, and
+        JavaScript.
+      </p>
+      <h3 style="text-align: center; margin-top: 30px">Skills</h3>
+      <div class="skills-list">
+        <div class="skill">HTML</div>
+        <div class="skill">CSS</div>
+        <div class="skill">JavaScript</div>
+        <div class="skill">PHP</div>
+        <div class="skill">MySQL</div>
+        <div class="skill">Git & GitHub</div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="projects-grid">
+        <div class="card">
+          <h3>📝 Notes App</h3>
+          <p>Create, delete, and store notes locally in your browser.</p>
+          <a href="notes.html" target="_blank">Open Notes App</a>
+        </div>
+        <div class="card">
+          <h3>🛍️ Product Listing</h3>
+          <p>
+            40+ products with filtering, category sorting, and responsive
+            layout.
+          </p>
+          <a href="products.html" target="_blank">Open Product Page</a>
+        </div>
+        <div class="card">
+          <h3>📬 Contact Form</h3>
+          <p>Responsive contact form built using HTML, CSS, and JavaScript.</p>
+          <a href="contact.html" target="_blank">Open Contact Form</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <h2>Contact</h2>
+      <div class="contact-info">
+        <p><strong>Email:</strong> chilukaneha006@gmail.com</p>
+        <p>
+          <strong>LinkedIn:</strong>
+          <a
+            href="https://www.linkedin.com/in/neha-chiluka-681b30366"
+            target="_blank"
+            >linkedin.com/in/neha-chiluka</a
+          >
+        </p>
+        <p>
+          <strong>GitHub:</strong>
+          <a href="https://github.com/CodeByNeha" target="_blank"
+            >github.com/CodeByNeha</a
+          >
+        </p>
+        <p><strong>Location:</strong> Telangana, India</p>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 Neha Chiluka. All rights reserved.</p>
+    </footer>
+
+    <script>
+      function showSection(id) {
+        document.querySelectorAll("section").forEach((sec) => {
+          sec.classList.remove("active");
+        });
+        document.getElementById(id).classList.add("active");
+
+        document.querySelectorAll(".tab-btn").forEach((btn) => {
+          btn.classList.remove("active");
+        });
+        event.target.classList.add("active");
+      }
+    </script>
+  </body>
+</html>

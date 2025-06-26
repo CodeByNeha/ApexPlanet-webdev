@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Notes App</title>
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Roboto", sans-serif;
+        background-color: #2a2d40;
+        color: #f5f5f5;
+        padding: 2rem;
+      }
+
+      .container {
+        max-width: 700px;
+        margin: auto;
+        background-color: #323550;
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 1.5rem;
+        color: #00cec9;
+        font-family: "Merriweather", serif;
+      }
+
+      textarea {
+        width: 100%;
+        padding: 14px;
+        font-size: 1rem;
+        border: 1px solid #555;
+        border-radius: 8px;
+        background-color: #2b2c44;
+        color: #f5f5f5;
+        margin-bottom: 1rem;
+        resize: vertical;
+      }
+
+      textarea::placeholder {
+        color: #aaa;
+      }
+
+      button {
+        background-color: #00b894;
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        font-size: 1rem;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #008e76;
+      }
+
+      .note {
+        background-color: #3a3e5c;
+        border: 1px solid #444;
+        border-radius: 10px;
+        padding: 1rem;
+        margin-top: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 2px 8px rgba(0, 206, 201, 0.15);
+      }
+
+      .note p {
+        margin: 0;
+        word-wrap: break-word;
+        flex: 1;
+        padding-right: 10px;
+      }
+
+      .note button {
+        background-color: #ff7675;
+        padding: 8px 14px;
+        font-size: 0.9rem;
+        border: none;
+        border-radius: 6px;
+        color: white;
+        cursor: pointer;
+      }
+
+      .note button:hover {
+        background-color: #d63031;
+      }
+
+      @media (max-width: 600px) {
+        .container {
+          padding: 1.2rem;
+        }
+
+        textarea,
+        button {
+          font-size: 0.95rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>📝 My Notes</h1>
+      <textarea
+        id="noteInput"
+        rows="4"
+        placeholder="Write your note here..."
+      ></textarea>
+      <button onclick="addNote()">Add Note</button>
+      <div id="notesList"></div>
+    </div>
+
+    <script>
+      function getNotes() {
+        return JSON.parse(localStorage.getItem("notes") || "[]");
+      }
+
+      function saveNotes(notes) {
+        localStorage.setItem("notes", JSON.stringify(notes));
+      }
+
+      function renderNotes() {
+        const notes = getNotes();
+        const notesList = document.getElementById("notesList");
+        notesList.innerHTML = "";
+        notes.forEach((note, index) => {
+          const div = document.createElement("div");
+          div.className = "note";
+          div.innerHTML = `
+            <p>${note}</p>
+            <button onclick="deleteNote(${index})">Delete</button>
+          `;
+          notesList.appendChild(div);
+        });
+      }
+
+      function addNote() {
+        const input = document.getElementById("noteInput");
+        const notes = getNotes();
+        if (input.value.trim()) {
+          notes.push(input.value.trim());
+          saveNotes(notes);
+          input.value = "";
+          renderNotes();
+        }
+      }
+
+      function deleteNote(index) {
+        const notes = getNotes();
+        notes.splice(index, 1);
+        saveNotes(notes);
+        renderNotes();
+      }
+
+      renderNotes();
+    </script>
+  </body>
+</html>
