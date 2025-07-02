@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NeoShop - E-commerce</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="light">
+    <!-- Navigation -->
+    <nav class="navbar fade-in">
+      <div class="logo">NeoShop</div>
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li>
+          <a href="cart.html">Cart (<span id="cart-count">0</span>)</a>
+        </li>
+      </ul>
+      <button id="mode-toggle">Toggle Mode</button>
+    </nav>
+
+    <!-- Fullscreen Hero Section -->
+    <section class="new-hero fade-in">
+      <div class="hero-content slide-up">
+        <h1>Uncover Trends. Shop Bold.</h1>
+        <p>Discover the most stylish products of the season.</p>
+        <a href="products.html" class="btn scale-in">Start Shopping</a>
+      </div>
+    </section>
+
+    <!-- Category Showcase -->
+    <section class="category-showcase fade-in">
+      <div class="category-grid-modern slide-up">
+        <a
+          href="products.html?category=Electronics"
+          class="cat-card elec scale-in"
+        >
+          <div class="overlay"><h3>Electronics</h3></div>
+        </a>
+        <a
+          href="products.html?category=Clothing"
+          class="cat-card clothing scale-in"
+        >
+          <div class="overlay"><h3>Clothing</h3></div>
+        </a>
+        <a
+          href="products.html?category=Footwear"
+          class="cat-card footwear scale-in"
+        >
+          <div class="overlay"><h3>Footwear</h3></div>
+        </a>
+        <a
+          href="products.html?category=Appliances"
+          class="cat-card appliances scale-in"
+        >
+          <div class="overlay"><h3>Appliances</h3></div>
+        </a>
+      </div>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>

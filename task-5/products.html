@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Products - NeoShop</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="light">
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+      <div class="logo">NeoShop</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html?category=Electronics">Electronics</a></li>
+        <li><a href="products.html?category=Clothing">Clothing</a></li>
+        <li><a href="products.html?category=Footwear">Footwear</a></li>
+        <li><a href="products.html?category=Appliances">Appliances</a></li>
+        <li>
+          <a href="cart.html">Cart (<span id="cart-count">0</span>)</a>
+        </li>
+      </ul>
+      <button id="mode-toggle">Toggle Mode</button>
+    </nav>
+
+    <!-- Product Listing -->
+    <section class="product-listing modern-listing">
+      <h2 id="category-title">All Products</h2>
+
+      <div class="filters">
+        <select id="sort-price">
+          <option value="default">Sort by Price</option>
+          <option value="low-to-high">Low to High</option>
+          <option value="high-to-low">High to Low</option>
+        </select>
+        <select id="filter-category">
+          <option value="all">All Categories</option>
+          <option value="Electronics">Electronics</option>
+          <option value="Clothing">Clothing</option>
+          <option value="Footwear">Footwear</option>
+          <option value="Appliances">Appliances</option>
+        </select>
+      </div>
+
+      <div class="product-grid" id="product-grid">
+        <!-- JS dynamically inserts product cards -->
+      </div>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>

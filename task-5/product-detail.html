@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Detail - NeoShop</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="light">
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+      <div class="logo">NeoShop</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html?category=Electronics">Electronics</a></li>
+        <li><a href="products.html?category=Clothing">Clothing</a></li>
+        <li><a href="products.html?category=Footwear">Footwear</a></li>
+        <li><a href="products.html?category=Appliances">Appliances</a></li>
+        <li>
+          <a href="cart.html">Cart (<span id="cart-count">0</span>)</a>
+        </li>
+      </ul>
+      <button id="mode-toggle">Toggle Mode</button>
+    </nav>
+
+    <!-- Product Detail Section -->
+    <section class="product-detail modern-product">
+      <div class="product-card-modern">
+        <img
+          id="product-image"
+          src=""
+          alt="Product Image"
+          class="product-img-modern"
+        />
+        <div class="product-info-modern">
+          <h2 id="product-name"></h2>
+          <p id="product-price" class="price"></p>
+          <p id="product-description"></p>
+          <button id="add-to-cart-btn" class="btn">Add to Cart</button>
+        </div>
+      </div>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>
